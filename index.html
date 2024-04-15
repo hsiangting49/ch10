@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe & Comments</title>   
+    <script defer src="https://cdn.jsdelivr.net/gh/hankhank10/alpine-fetch@main/alpine-fetch.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>    
+    <style>
+        img {
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div x-data="{recipeimg:  $fetchjson('https://dummyjson.com/recipes/2', jsonItem='image')}">
+        <img x-bind:src="recipeimg" alt= "picture" />
+        
+    </div>
+    <div x-data="{recipename:  $fetchjson('https://dummyjson.com/recipes/2', jsonItem='name')}">
+        <h1 class="text-center text-3xl font-bold " > 
+            This is: <span x-text="recipename"></span> 
+        </h1>  
+        
+    </div>
+    <div x-data="{reciperating:  $fetchjson('https://dummyjson.com/recipes/2', jsonItem='rating')}">
+        <h1 class="text-center text-3xl font-bold " > 
+            Ratings: <span x-text="reciperating"></span> 
+        </h1>  
+    </div>
+    <div x-data="{usercomment:  $fetchjson('https://dummyjson.com/comments/30', jsonItem='body')}">
+        <h1 class="text-center text-3xl font-bold " > 
+            One user said : <span x-text="usercomment"></span> 
+        </h1>  
+    </div>
+
+    <script src="/utilities.js"></script>       
+</body>
+
